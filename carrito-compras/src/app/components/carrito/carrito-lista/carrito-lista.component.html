@@ -1,1 +1,74 @@
-<p>carrito-lista works!</p>
+<div class="container mt-3">
+    <h5>Mi Carrito</h5>
+    <hr/>
+
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Imagen</th>
+                                    <th>Precio (S/.)</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (item of listaCarrito; track item.producto) {
+                                    <tr class="align-middle">
+                                        <td>{{item.producto.nombre}}</td>
+                                        <td><img [src]="'/img/' + item.producto.imagen" width="50" height="60"></td>
+                                        <td>S/. {{item.producto.precio | number:'1.2-2'}}</td>
+                                        <!--<td>{{item.cantidad}}</td>-->
+                                        <td>
+                                            <input type="number" class="form-control" [(ngModel)]="item.cantidad" min="1" (keydown)="onKeyDown($event)" (change)="actualizarCarrito(item, $index)">
+                                        </td>
+
+                                        <td>S/. {{(item.cantidad * item.producto.precio) | number:'1.2-2'}}</td>
+                                        <td>
+                                            <button (click)="eliminarItem($index)" type="button" class="btn btn-danger btn-sm">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+
+                                @if(listaCarrito.length == 0) {
+                                    <tr>
+                                        <td colspan="6" class="text-center">No hay productos</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <h5>RESUMEN COMPRA</h5>
+                    </div>
+                    <hr />
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <p class="mb-2">Total</p>
+                        <p class="mb-2">S/. {{carritoService.totalCarrito() | number:'1.2-2'}}</p>
+                    </div>
+
+                    <button [disabled]="listaCarrito.length == 0" type="button" class="btn btn-dark btn-block btn-lg">
+                        <div class="d-flex justify-content-between">
+                            <span>PROCESAR</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

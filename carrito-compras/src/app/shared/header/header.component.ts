@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CarritoService } from '../../core/services/carrito.service';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+  public carritoService = inject(CarritoService);
 }

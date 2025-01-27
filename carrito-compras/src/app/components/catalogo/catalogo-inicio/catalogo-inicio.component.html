@@ -9,11 +9,11 @@
                     <img [src]="'img/' + item.imagen">
                     <div class="card-body">
                         <p class="fw-bold">{{item.nombre}}</p>
-                        <div class="d-flex justify align-items-center">
-                            <button type="button" class="btn btn-sm btn-dark">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button (click)="agregarProducto(item)" type="button" class="btn btn-sm btn-dark">
                                 <i class="bi bi-cart"></i> Agregar
                             </button>
-                            <small class="fw-bold">S/. {{item.precio}}</small>
+                            <small class="fw-bold">S/. {{item.precio | number:'1.2-2'}}</small>
                         </div>
                     </div>
                 </div>
