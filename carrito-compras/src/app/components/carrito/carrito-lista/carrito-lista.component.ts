@@ -1,39 +1,42 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CarritoService } from '../../../core/services/carrito.service';
 import { Carrito } from '../../../core/modelo/carrito';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-carrito-lista',
   imports: [CommonModule, FormsModule],
   templateUrl: './carrito-lista.component.html',
-  styleUrl: './carrito-lista.component.scss'
+  styleUrls: ['./carrito-lista.component.scss'],
 })
-export class CarritoListaComponent implements OnInit{
+export class CarritoListaComponent implements OnInit {
   public carritoService = inject(CarritoService);
-  listaCarrito:Carrito[] = [];
+  listaCarrito: Carrito[] = [];
+  private subscription!: Subscription;
 
   ngOnInit(): void {
-    this.getListaCarrito();    
+    this.subscription = this.carritoService.carrito$.subscribe((data) => {
+      this.listaCarrito = data;
+    });
   }
 
-  getListaCarrito(){
-    this.listaCarrito = this.carritoService.getCarrito();
-  }
-
-  eliminarItem(index: number){
+  eliminarItem(index: number) {
     this.carritoService.eliminarProducto(index);
-    this.carritoService.getCarrito();
-
-    
   }
 
-  onKeyDown(event: any){
+  onKeyDown(event: any) {
     event.preventDefault();
   }
 
-  actualizarCarrito(item: Carrito, index: number){
+  actualizarCarrito(item: Carrito, index: number) {
     this.carritoService.actualizarProducto(index, item.cantidad);
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
