@@ -1,0 +1,5 @@
+[
+    { "id": 1, "nombre": "Bebidas"},
+    { "id": 2, "nombre": "Comidas"},
+    { "id": 3, "nombre": "Postres"}
+]

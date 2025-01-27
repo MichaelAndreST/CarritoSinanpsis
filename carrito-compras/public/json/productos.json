@@ -1,11 +1,11 @@
 [
-    { "id": 1, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 2, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 3, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 4, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 5, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 6, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 7, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 8, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" },
-    { "id": 9, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg" }
+    { "id": 1, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
+    { "id": 2, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 2, "categoria": "Comidas", "detalle": "Gaseosa nacional" },
+    { "id": 3, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 3, "categoria": "Comidas", "detalle": "Gaseosa nacional" },
+    { "id": 4, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
+    { "id": 5, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
+    { "id": 6, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
+    { "id": 7, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
+    { "id": 8, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
+    { "id": 9, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" }
 ]

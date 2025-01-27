@@ -1,23 +1,33 @@
 <div class="container mt-2">
     <h3 class="text-center">Cátalogo</h3>
-    <hr/>
+    <hr />
 
+    <!-- Dropdown para seleccionar la categoría -->
+    <div class="d-flex justify-content-end mb-3">
+        <select class="form-select w-auto" [(ngModel)]="categoriaSeleccionada" (change)="filtrarProductos()">
+            <option *ngFor="let categoria of categorias" [value]="categoria.id">
+              {{ categoria.nombre }}
+            </option>
+        </select>
+    </div>
+
+    <!-- Productos agrupados por categoría -->
     <div class="row">
-        @for(item of productos; track item.id){
+        <ng-container *ngFor="let producto of productosFiltrados">
             <div class="col-sm-4 mt-1">
                 <div class="card">
-                    <img [src]="'img/' + item.imagen">
+                    <img [src]="'img/' + producto.imagen" class="card-img-top">
                     <div class="card-body">
-                        <p class="fw-bold">{{item.nombre}}</p>
+                        <p class="fw-bold">{{ producto.nombre }}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <button (click)="agregarProducto(item)" type="button" class="btn btn-sm btn-dark">
+                            <button (click)="agregarProducto(producto)" type="button" class="btn btn-sm btn-dark">
                                 <i class="bi bi-cart"></i> Agregar
                             </button>
-                            <small class="fw-bold">S/. {{item.precio | number:'1.2-2'}}</small>
+                            <small class="fw-bold">S/. {{ producto.precio | number:'1.2-2' }}</small>
                         </div>
                     </div>
                 </div>
             </div>
-        }
+        </ng-container>
     </div>
 </div>
