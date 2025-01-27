@@ -1,0 +1,40 @@
+.container {
+    margin-top: 30px;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.form-control {
+    width: 80px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+}
+
+.btn-lg {
+    font-size: 18px;  
+    padding: 12px 20px; 
+    min-width: 200px;  
+}
+
+.btn-dark {
+    font-size: 16px;
+    padding: 12px 20px;    
+    min-width: 220px;      
+    display: flex;         
+    justify-content: center;
+    align-items: center;  
+}
+
+.btn-dark i {
+    font-size: 20px;       
+    margin-right: 10px;    
+}
+
+.btn-dark:hover {
+    background-color: #23272b;  
+}

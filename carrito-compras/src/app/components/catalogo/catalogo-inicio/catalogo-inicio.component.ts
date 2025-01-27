@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Categoria } from '../../../core/modelo/categoria';
 import { CategoriaService } from '../../../core/services/categoria.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-catalogo-inicio',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './catalogo-inicio.component.html',
   styleUrl: './catalogo-inicio.component.scss'
 })
@@ -23,8 +24,10 @@ export class CatalogoInicioComponent implements OnInit {
   productosFiltrados: Producto[] = [];
   categoriaSeleccionada = 0;
 
+  // Para almacenar los productos agrupados por categoría
+  productosAgrupados: { categoria: Categoria, productos: Producto[] }[] = [];
+
   ngOnInit(): void {
-    this.filtrarProductos();
     this.getCategorias();
     this.getProducto();
   }
@@ -33,14 +36,6 @@ export class CatalogoInicioComponent implements OnInit {
     this.productoService.getProductos().subscribe({
       next: (data) => {
         this.productos = data;
-        this.categorias = [
-          { id: 0, nombre: 'Todos' }, 
-          ...[...new Set(this.productos.map(producto => producto.idCategoria))]
-            .map(id => ({
-              id,
-              nombre: this.obtenerNombreCategoria(id) 
-            }))
-        ];
         this.filtrarProductos(); 
       },
       error: (e) => {
@@ -53,6 +48,7 @@ export class CatalogoInicioComponent implements OnInit {
     this.categoriaService.getCategorias().subscribe({
       next: (data) => {
         this.categorias = data;
+        this.categorias.unshift({ id: 0, nombre: 'Todos' });  // Añadimos la opción "Todos" al principio
       },
       error: (e) => {
         console.error(e);
@@ -60,27 +56,43 @@ export class CatalogoInicioComponent implements OnInit {
     });
   }
 
-  obtenerNombreCategoria(idCategoria: number): string {
-    const categoria = this.categorias.find(c => c.id === idCategoria);
-    return categoria ? categoria.nombre : 'Desconocida';
-  }
-
   agregarProducto(item: Producto){
     this.carritoService.agregarProducto(item);
   }
 
   filtrarProductos(): void {
-    console.log('Filtrando productos... Categoría seleccionada:', this.categoriaSeleccionada);  // Verifica la categoría seleccionada
+    console.log('Filtrando productos... Categoría seleccionada:', this.categoriaSeleccionada);
+
     if (this.categoriaSeleccionada == 0) {
-      this.productosFiltrados = [...this.productos];  // Mostrar todos los productos
+      // Mostrar todos los productos
+      this.productosFiltrados = [...this.productos];
     } else {
-
-      console.log("data producto", this.productos);
-
-      this.productosFiltrados = this.productos.filter((producto) => {
-        return producto.idCategoria == this.categoriaSeleccionada;
-      });
+      // Filtrar productos según la categoría seleccionada
+      this.productosFiltrados = this.productos.filter(
+        (producto) => producto.idCategoria == this.categoriaSeleccionada
+      );
     }
-    console.log('Productos filtrados:', this.productosFiltrados);  // Verifica los productos filtrados
+
+    // Agrupar los productos por categoría
+    this.agruparProductosPorCategoria();
+    console.log('Productos agrupados:', this.productosAgrupados);
+  }
+
+  agruparProductosPorCategoria() {
+    this.productosAgrupados = [];
+
+    // Agrupar productos por cada categoría
+    this.categorias.forEach(categoria => {
+      const productosDeCategoria = this.productosFiltrados.filter(
+        producto => producto.idCategoria == categoria.id
+      );
+
+      if (productosDeCategoria.length > 0) {
+        this.productosAgrupados.push({
+          categoria,
+          productos: productosDeCategoria
+        });
+      }
+    });
   }
 }

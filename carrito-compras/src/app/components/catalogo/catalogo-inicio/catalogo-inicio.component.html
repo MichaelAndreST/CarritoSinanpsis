@@ -1,33 +1,41 @@
 <div class="container mt-2">
     <h3 class="text-center">Cátalogo</h3>
     <hr />
-
-    <!-- Dropdown para seleccionar la categoría -->
+  
     <div class="d-flex justify-content-end mb-3">
-        <select class="form-select w-auto" [(ngModel)]="categoriaSeleccionada" (change)="filtrarProductos()">
-            <option *ngFor="let categoria of categorias" [value]="categoria.id">
-              {{ categoria.nombre }}
-            </option>
-        </select>
+      <select class="form-select w-auto" [(ngModel)]="categoriaSeleccionada" (change)="filtrarProductos()">
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{ categoria.nombre }}
+        </option>
+      </select>
     </div>
-
-    <!-- Productos agrupados por categoría -->
+  
     <div class="row">
-        <ng-container *ngFor="let producto of productosFiltrados">
-            <div class="col-sm-4 mt-1">
+      <ng-container *ngFor="let grupo of productosAgrupados">
+        <div class="col-12 mt-3">
+          <h4>{{ grupo.categoria.nombre }}</h4>
+          <div class="row">
+            <ng-container *ngFor="let producto of grupo.productos">
+              <div class="col-sm-4 mt-1">
                 <div class="card">
-                    <img [src]="'img/' + producto.imagen" class="card-img-top">
-                    <div class="card-body">
-                        <p class="fw-bold">{{ producto.nombre }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <button (click)="agregarProducto(producto)" type="button" class="btn btn-sm btn-dark">
-                                <i class="bi bi-cart"></i> Agregar
-                            </button>
-                            <small class="fw-bold">S/. {{ producto.precio | number:'1.2-2' }}</small>
-                        </div>
+                  <a [routerLink]="['/producto', producto.id]">
+                    <img [src]="'img/' + producto.imagen" class="card-img-top" alt="{{ producto.nombre }}">
+                  </a>
+                  <div class="card-body">
+                    <p class="fw-bold">{{ producto.nombre }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button (click)="agregarProducto(producto)" type="button" class="btn btn-sm btn-dark">
+                        <i class="bi bi-cart"></i> Agregar
+                      </button>
+                      <small class="fw-bold">S/. {{ producto.precio | number:'1.2-2' }}</small>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
     </div>
-</div>
+  </div>
+  
