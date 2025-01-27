@@ -15,18 +15,21 @@ export class HeaderComponent implements OnInit {
   public productosCarrito: Carrito[] = [];
 
   ngOnInit() {
-    // Suscribirse al carrito para obtener los productos y la cantidad en tiempo real
     this.carritoService.carrito$.subscribe(carrito => {
-      this.productosCarrito = carrito;  // Actualizamos el carrito
+      this.productosCarrito = carrito; 
     });
   }
 
-  // Método para abrir el modal del carrito
+
   openCarritoModal() {
     const modalElement = document.getElementById('carritoModal');
     if (modalElement) {
-      const modal = new (window as any).bootstrap.Modal(modalElement);  // Usamos Bootstrap Modal desde la ventana global
+      const modal = new (window as any).bootstrap.Modal(modalElement); 
       modal.show();
     }
+  }
+
+  eliminarItem(index: number) {
+    this.carritoService.eliminarProducto(index);
   }
 }

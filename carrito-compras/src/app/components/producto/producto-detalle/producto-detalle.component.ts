@@ -27,7 +27,6 @@ export class ProductoDetalleComponent implements OnInit {
 
   ngOnInit(): void {
     const productoId = Number(this.route.snapshot.paramMap.get('id'));
-    //this.producto = this.obtenerProductoPorId(productoId);
   }
 
   getProductoXId(idProducto: number){
@@ -42,17 +41,6 @@ export class ProductoDetalleComponent implements OnInit {
         console.error('Error al obtener el producto', error);
       }
     });
-  }
-
-  obtenerProductoPorId(id: number): Producto {
-    // Deberías tener la lista de productos disponible en tu servicio
-    // Aquí voy a simular que tengo un array de productos.
-    const productos: Producto[] = [
-      { id: 1, nombre: 'Producto 1', detalle: 'Descripción del producto 1', precio: 100, imagen: 'producto1.jpg', idCategoria: 1 },
-      { id: 2, nombre: 'Producto 2', detalle: 'Descripción del producto 2', precio: 200, imagen: 'producto2.jpg', idCategoria: 2 },
-      // Agregar más productos...
-    ];
-    return productos.find((producto) => producto.id === id)!;
   }
 
   agregarProducto() {

@@ -17,7 +17,7 @@ export class ProductoService {
 
   getProductoXId(id: number) {
     return this.http.get<Producto[]>(this.url).pipe(
-      map((productos) => productos.find((producto) => producto.id === id))  // Filtra el producto por su ID
+      map((productos) => productos.find((producto) => producto.id === id))
     );
   }
 

@@ -24,7 +24,7 @@
                                         <td>{{item.producto.nombre}}</td>
                                         <td><img [src]="'/img/' + item.producto.imagen" width="50" height="60"></td>
                                         <td>S/. {{item.producto.precio | number:'1.2-2'}}</td>
-                                        <!--<td>{{item.cantidad}}</td>-->
+                                        
                                         <td>
                                             <input type="number" class="form-control" [(ngModel)]="item.cantidad" min="1" (keydown)="onKeyDown($event)" (change)="actualizarCarrito(item, $index)">
                                         </td>
