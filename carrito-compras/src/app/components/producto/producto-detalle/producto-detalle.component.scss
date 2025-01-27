@@ -2,8 +2,9 @@
     margin-top: 30px;
 }
 
-.img-fluid {
-    max-width: 100%;
+img {
+ max-height: 50vh;
+ object-fit: contain;
 }
 
 .form-control {

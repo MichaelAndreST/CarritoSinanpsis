@@ -1,11 +1,11 @@
 [
-    { "id": 1, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
-    { "id": 2, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 2, "categoria": "Comidas", "detalle": "Gaseosa nacional" },
-    { "id": 3, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 3, "categoria": "Comidas", "detalle": "Gaseosa nacional" },
-    { "id": 4, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
-    { "id": 5, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
-    { "id": 6, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
-    { "id": 7, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
-    { "id": 8, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" },
-    { "id": 9, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "categoria": "bebidas", "detalle": "Gaseosa nacional" }
+    { "id": 1, "nombre": "Inka Cola", "precio": 2.50, "imagen": "inkacola.jpg", "idCategoria": 1, "detalle": "Gaseosa nacional" },
+    { "id": 2, "nombre": "Coca Cola", "precio": 2.50, "imagen": "cocacola.jpg", "idCategoria": 1, "detalle": "Gaseosa nacional" },
+    { "id": 3, "nombre": "Pepsi", "precio": 2.50, "imagen": "pepsi.jpg", "idCategoria": 1,  "detalle": "Gaseosa nacional" },
+    { "id": 4, "nombre": "Ceviche", "precio": 2.50, "imagen": "ceviche.jpg", "idCategoria": 2, "detalle": "Gaseosa nacional" },
+    { "id": 5, "nombre": "Pollo a la brasa", "precio": 2.50, "imagen": "polloalabrasa.jpg", "idCategoria": 2, "detalle": "Gaseosa nacional" },
+    { "id": 6, "nombre": "Chaufa", "precio": 2.50, "imagen": "chaufa.jpg", "idCategoria": 2, "detalle": "Gaseosa nacional" },
+    { "id": 7, "nombre": "Alfajores", "precio": 2.50, "imagen": "alfajores.jpg", "idCategoria": 3, "detalle": "Gaseosa nacional" },
+    { "id": 8, "nombre": "Selva Negra", "precio": 2.50, "imagen": "selvanegra.jpg", "idCategoria": 3, "detalle": "Gaseosa nacional" },
+    { "id": 9, "nombre": "Tres leches", "precio": 2.50, "imagen": "tresleches.jpg", "idCategoria": 3, "detalle": "Gaseosa nacional" }
 ]
